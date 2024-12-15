@@ -8,7 +8,15 @@ spring:
     password:
     driver-class-name: org.postgresql.Driver
 
+  flyway:
+    enabled: true
+    url: jdbc:postgresql://localhost:5432/qima_store
+    user: femow
+    password:
+    schemas: qimastore
+    locations: classpath:db/migrations
+
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
     show-sql: true
