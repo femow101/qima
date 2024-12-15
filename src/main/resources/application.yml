@@ -1,9 +1,13 @@
+server:
+  port: 35101
+
 spring:
   application:
     name: store
 
   datasource:
     url: jdbc:postgresql://localhost:5432/qima_store
+    schema: qimastore
     username: femow
     password:
     driver-class-name: org.postgresql.Driver
@@ -20,3 +24,6 @@ spring:
     hibernate:
       ddl-auto: none
     show-sql: true
+    properties:
+      hibernate:
+        default_schema: qimastore

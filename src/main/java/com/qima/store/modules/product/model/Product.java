@@ -1,15 +1,22 @@
-package com.qima.store.model;
+package com.qima.store.modules.product.model;
 
+import com.qima.store.modules.category.model.Category;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 
 @Data
-@Table(name = "PRODUCT")
 @Entity
+@Table(name = "PRODUCT")
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Product {
 
     @Id
@@ -39,4 +46,8 @@ public class Product {
 
     @UpdateTimestamp
     private LocalDateTime updatedOn;
+
+    public boolean isAvailable() {
+        return this.quantity > 0;
+    }
 }

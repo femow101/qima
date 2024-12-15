@@ -1,8 +1,11 @@
-package com.qima.store.model;
+package com.qima.store.modules.category.model;
 
+import com.qima.store.modules.product.model.Product;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 @Entity
@@ -17,4 +20,7 @@ public class Category {
 
     @Column(nullable = false)
     private String path;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
+    private List<Product> products;
 }
